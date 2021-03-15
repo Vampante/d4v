@@ -62,9 +62,6 @@ async def changehealth(user, add, subtract):
 			health[id] -= subtract # subtracts what it was told to
 			health[id] += add # adds what it was told to
 			print(f"{user} didnt have health but now they do")
-	if mrpresident_inroom in user.roles:
-		room_embed = discord.Embed(title="The target is inside Mr. President", colour=discord.Colour(0x2f964d))
-		await ctx.author.send(embed=room_embed)
 
 
 

@@ -25,7 +25,7 @@ async def on_member_join(member):
 
 
 
-@client.command(aliases=["kc","kingcrimson","itjustworks"])
+@client.command(aliases=["kc","kingcrimson","itjustworks"],brief="it just works")
 @commands.cooldown(rate=1,per=25,type=commands.BucketType.user)
 async def king_crimson(ctx):
 	kingcrimson = discord.utils.get(ctx.guild.roles, id=817441099173199923)
@@ -42,13 +42,13 @@ async def king_crimson(ctx):
 		await ctx.author.send(embed=kc_embed)
 		await ctx.channel.purge(after=ctx.message)
 
-@client.command(aliases=["mrp","mrpresident","mp"])
+@client.command(aliases=["mrp","mrpresident","mp"],brief="funny turtle and funny key and also a president i guess")
 @commands.cooldown(rate=2,per=5,type=commands.BucketType.user)
 async def mr_president(ctx):
 	mrpresident = discord.utils.get(ctx.guild.roles, id=817885472734838795)
-	mrpresidentinroom = discord.utils.get(ctx.guild.roles, id=817885610760208444)
+	mrpresident_inroom = discord.utils.get(ctx.guild.roles, id=817885610760208444)
 	if mrpresident in ctx.author.roles:
-		if mrpresidentinroom in ctx.author.roles:
+		if mrpresident_inroom in ctx.author.roles:
 			mrpresident_embed = discord.Embed(title=f"{ctx.author.display_name} left Mr. President!", colour=discord.Colour(0x2f964d))
 			await ctx.channel.send(embed=mrpresident_embed)
 			await ctx.author.remove_roles(mrpresident_inroom)
@@ -296,8 +296,7 @@ async def punch(ctx):
 					kq_list.pop(0)
 					kq_embed = discord.Embed(title=f"Bomb Detonated!", colour=discord.Colour(0xdba4d3))
 					await ctx.channel.send(embed=kq_embed)
-					kq_embed2 = discord.Embed(title=f"You detonated {punched.display_name}'s message dealing 30 damage", colour=discord.Colour(0xdba4d3))
-					await ctx.author.send(embed=kq_embed2)
+					break
 
 @client.command(aliases=["b"],brief="ORA ORA ORA ORA ORA!")
 async def barrage(ctx):
@@ -464,8 +463,9 @@ async def info(ctx):
 	kingcrimson = discord.utils.get(ctx.guild.roles, id=817441099173199923)
 	heavensdoor = discord.utils.get(ctx.guild.roles, id=818585440352469073)
 	killerqueen = discord.utils.get(ctx.guild.roles, id=819249703291322450)
+	mrpresident = discord.utils.get(ctx.guild.roles, id=817885472734838795)
 
-	stands = [thehand, theworld, starplatinum, silverchariot, crazydiamond, kingcrimson, heavensdoor, killerqueen]
+	stands = [thehand, theworld, starplatinum, silverchariot, crazydiamond, kingcrimson, mrpresident, heavensdoor, killerqueen]
 
 	if ctx.message.mentions == []:
 		InfoOn = ctx.author
